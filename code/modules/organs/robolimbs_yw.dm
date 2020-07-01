@@ -41,3 +41,17 @@
 	includes_tail = 0
 	suggested_species = "Unathi"
 	whitelisted_to = list("dameonowen")
+
+/datum/robolimb/dopiotl_nanovulp
+	company = "Jeanne - Nanovulp"
+	desc = "This limb seems rather vulpine and fuzzy, with some wiggly feeling at the touch."
+	icon = 'icons/mob/human_races/cyberlimbs/dopiotl/nanovulp.dmi'
+	includes_tail = 1
+	unavailable_to_build = 1
+	suggested_species = "Vulpkanin"
+	//whitelisted_to = list("dopiotl")
+	monitor_styles = "idle=idle;\
+		empty input=emptyinput;\
+		eye idle=eyeidle;\
+		rainbow=rainbow2;\
+		snow=snow"
