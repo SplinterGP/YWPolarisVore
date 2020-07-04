@@ -1650,3 +1650,31 @@
 	icon_override = 'icons/vore/custom_items_vr.dmi'
 	item_state = "khlife_overlay"
 	overlay_state = "khlife_overlay"
+
+// *****
+// Dopiotl
+// *****
+
+/obj/item/clothing/mask/monitor/fluff/jeanne
+
+	name = "Jeanne head display"
+	desc = "its jeanne display, its some LCD monitor that can be attached to a robot vulpy like head, allowing them to display stuff into it.."
+	body_parts_covered = FACE
+	dir = SOUTH
+
+	icon = 'icons/mob/human_races/cyberlimbs/dopiotl/nanovulp_animations.dmi'
+	icon_override = 'icons/mob/human_races/cyberlimbs/dopiotl/nanovulp_animations.dmi'
+	icon_state = "idle"
+
+
+/obj/item/clothing/mask/monitor/fluff/jeanne/equipped()
+	..()
+	var/mob/living/carbon/human/H = loc
+	if(istype(H) && H.wear_mask == src)
+		var/obj/item/organ/external/E = H.organs_by_name[BP_HEAD]
+		var/datum/robolimb/robohead = all_robolimbs[E.model]
+		canremove = 1
+		if(robohead.monitor_styles)
+			monitor_states = params2list(robohead.monitor_styles)
+			icon_state = monitor_states[monitor_state_index]
+			to_chat(H, "<span class='notice'>\The [src] connects to your display output.</span>")
